@@ -80,7 +80,6 @@ import java.util.List;
 
 import im.vector.Matrix;
 import im.vector.R;
-import im.vector.VectorApp;
 import im.vector.activity.CommonActivityUtils;
 import im.vector.activity.VectorMediasPickerActivity;
 import im.vector.activity.VectorMemberDetailsActivity;
@@ -89,6 +88,7 @@ import im.vector.preference.RoomAvatarPreference;
 import im.vector.preference.VectorCustomActionEditTextPreference;
 import im.vector.preference.VectorListPreference;
 import im.vector.preference.VectorSwitchPreference;
+import im.vector.settings.VectorLocale;
 import im.vector.util.SystemUtilsKt;
 import im.vector.util.ThemeUtils;
 import im.vector.util.VectorUtils;
@@ -1326,8 +1326,8 @@ public class VectorRoomSettingsFragment extends PreferenceFragment implements Sh
                 Collections.sort(bannedMembers, new Comparator<RoomMember>() {
                     @Override
                     public int compare(RoomMember m1, RoomMember m2) {
-                        return m1.getUserId().toLowerCase(VectorApp.getApplicationLocale())
-                                .compareTo(m2.getUserId().toLowerCase(VectorApp.getApplicationLocale()));
+                        return m1.getUserId().toLowerCase(VectorLocale.INSTANCE.getApplicationLocale())
+                                .compareTo(m2.getUserId().toLowerCase(VectorLocale.INSTANCE.getApplicationLocale()));
                     }
                 });
 

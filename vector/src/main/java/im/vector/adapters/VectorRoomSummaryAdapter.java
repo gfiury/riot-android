@@ -51,7 +51,7 @@ import java.util.List;
 import im.vector.Matrix;
 import im.vector.PublicRoomsManager;
 import im.vector.R;
-import im.vector.VectorApp;
+import im.vector.settings.VectorLocale;
 import im.vector.util.RiotEventDisplay;
 import im.vector.util.RoomUtils;
 import im.vector.util.ThemeUtils;
@@ -221,7 +221,7 @@ public class VectorRoomSummaryAdapter extends BaseExpandableListAdapter {
 
         if (!TextUtils.isEmpty(mSearchedPattern)) {
             String roomName = VectorUtils.getRoomDisplayName(mContext, mMxSession, room);
-            res = (!TextUtils.isEmpty(roomName) && (roomName.toLowerCase(VectorApp.getApplicationLocale()).contains(mSearchedPattern)));
+            res = (!TextUtils.isEmpty(roomName) && (roomName.toLowerCase(VectorLocale.INSTANCE.getApplicationLocale()).contains(mSearchedPattern)));
         }
 
         return res;
@@ -954,7 +954,7 @@ public class VectorRoomSummaryAdapter extends BaseExpandableListAdapter {
         String trimmedPattern = pattern;
 
         if (null != pattern) {
-            trimmedPattern = pattern.trim().toLowerCase(VectorApp.getApplicationLocale());
+            trimmedPattern = pattern.trim().toLowerCase(VectorLocale.INSTANCE.getApplicationLocale());
             trimmedPattern = TextUtils.getTrimmedLength(trimmedPattern) == 0 ? null : trimmedPattern;
         }
 
