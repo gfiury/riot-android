@@ -181,6 +181,8 @@ public class VectorApp extends MultiDexApplication {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+
+        // FIXME This is already done in the parent...
         MultiDex.install(this);
     }
 
